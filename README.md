@@ -1,10 +1,10 @@
 # Create managed masters programmatically
 
-## create-update-managed-master-no-casc.groovy
+## `create-update-managed-master-no-casc.groovy`
 
 This script shows how to programmatically create/update a managed master. You can specify the provisioning details.
 
-## create-update-managed-master.groovy
+## `create-update-managed-master.groovy`
 
 This script will create a managed master and a corresponding casc bundle based on a masterName and a yaml definition of the master.
 
@@ -12,7 +12,7 @@ The yaml definition is just a conjoined data structure of the various bundle.yam
 
 Note that the script manages the creation of the `bundle.yaml` file and the version of it.
 
-## create-update-managed-master-with-state.groovy
+## `create-update-managed-master-with-state.groovy`
 
 This additional script shows how to persist a representation of the masterDefinition to disk and check if the state differs before updating.
 
