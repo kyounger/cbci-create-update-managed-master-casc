@@ -8,13 +8,13 @@ This script shows how to programmatically create/update a managed master. You ca
 
 This script will create a managed master and a corresponding casc bundle based on a masterName and a yaml definition of the master.
 
-The yaml definition is just a conjoined data structure of the various bundle.yaml files, and a provisioning node that can take any property assignable through the master provisioning process.
+The yaml definition is just a conjoined data structure of the various casc bundle files, and a provisioning section that can take any property assignable through the master provisioning process.
 
-Note that the script manages the creation of the `bundle.yaml` file and the version of it.
+Note that the script manages the creation of the entire casc bundle on the OC, which includes the `bundle.yaml` file and its version. You do not need to manage casc bundles if you use this!!!
 
 ## `create-update-managed-master-with-state.groovy`
 
-This additional script shows how to persist a representation of the masterDefinition to disk and check if the state differs before updating.
+This additional script shows how to persist a representation of the masterDefinition to disk. The script then checks if the state differs before updating and restarting a master. Turns the script into a no-op if there are no changes to the master.
 
 ### P.S.
 
