@@ -6,9 +6,9 @@ This script shows how to programmatically create/update a managed master. You ca
 
 ## `create-update-managed-master.groovy`
 
-This script will create a managed master and a corresponding casc bundle based on a masterName and a yaml definition of the master.
+This script will create/update a managed master and a corresponding casc bundle based on a `masterName` and a yaml `masterDefinition` of the master.
 
-The yaml definition is just a conjoined data structure of the various casc bundle files, and a provisioning section that can take any property assignable through the master provisioning process.
+The yaml definition is just a conjoined data structure of the various casc bundle files (`jenkins.yaml`, `plugins.yaml`, and `plugin-catalog.yaml`, and a `provisioning` section that can take any property assignable through the master provisioning process.
 
 Note that the script manages the creation of the entire casc bundle on the OC, which includes the `bundle.yaml` file and its version. You do not need to manage casc bundles if you use this!!!
 
