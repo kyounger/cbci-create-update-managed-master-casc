@@ -1,4 +1,4 @@
-# Create managed masters programmatically
+# CloudBees CI: Create Managed Masters Programmatically
 
 ## `create-update-managed-master-no-casc.groovy`
 
