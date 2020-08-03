@@ -133,8 +133,7 @@ private void createMM(String masterName, def masterDefinition) {
 }
 
 private void updateMM(String masterName, def masterDefinition) {
-    println "Master '${masterName}' already exists. Checking if definition has changed."
-    boolean masterDefinitionIsChanged = false
+    println "Master '${masterName}' already exists. Updating it."
 
     ManagedMaster managedMaster = OperationsCenter.getInstance().getConnectedMasters().find { it.name == masterName } as ManagedMaster
 
@@ -143,7 +142,6 @@ private void updateMM(String masterName, def masterDefinition) {
         if (currentConfiguration["${k}"] != v) {
             currentConfiguration["${k}"] = v
             println "Master '${masterName}' had provisioning configuration item '${k}' change. Updating it."
-            masterDefinitionIsChanged = true
         }
     }
 
