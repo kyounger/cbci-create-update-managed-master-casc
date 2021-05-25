@@ -146,6 +146,8 @@ private void updateMM(String masterName, def masterDefinition) {
         }
     }
 
+    createOrUpdateBundle(masterDefinition.bundle, masterName)
+
     managedMaster.configuration = currentConfiguration
     managedMaster.save()
 
