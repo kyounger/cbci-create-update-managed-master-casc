@@ -4,6 +4,7 @@
 import com.cloudbees.masterprovisioning.kubernetes.KubernetesMasterProvisioning
 import com.cloudbees.opscenter.server.casc.BundleStorage
 import com.cloudbees.opscenter.server.casc.config.ConnectedMasterCascProperty
+import com.cloudbees.opscenter.server.casc.config.ConnectedMasterTokenProperty
 import com.cloudbees.opscenter.server.model.ManagedMaster
 import com.cloudbees.opscenter.server.model.OperationsCenter
 import com.cloudbees.opscenter.server.properties.ConnectedMasterLicenseServerProperty
@@ -108,8 +109,9 @@ private void createMM(String masterName, def masterDefinition) {
 
     ManagedMaster master = Jenkins.instance.createProject(ManagedMaster.class, masterName)
     master.setConfiguration(configuration)
-    master.properties.replace(new ConnectedMasterLicenseServerProperty(null))
+    master.properties.replace(new ConnectedMasterLicenseServerProperty(new ConnectedMasterLicenseServerProperty.DescriptorImpl().defaultStrategy()))
     master.properties.replace(new ConnectedMasterCascProperty(masterName))
+    master.properties.replace(new ConnectedMasterTokenProperty(hudson.util.Secret.fromString(UUID.randomUUID().toString())))
     master.save()
     master.onModified()
 
