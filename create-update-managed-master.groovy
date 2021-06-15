@@ -104,11 +104,12 @@ private void createMM(String masterName, def masterDefinition) {
         configuration["${k}"] = v
     }
 
+    // NOTE: the order of this next section seems to matter
     ManagedMaster master = Jenkins.instance.createProject(ManagedMaster.class, masterName)
     master.setConfiguration(configuration)
     master.properties.replace(new ConnectedMasterLicenseServerProperty(new ConnectedMasterLicenseServerProperty.DescriptorImpl().defaultStrategy()))
-    master.properties.replace(new ConnectedMasterCascProperty(masterName))
     master.properties.replace(new ConnectedMasterTokenProperty(hudson.util.Secret.fromString(UUID.randomUUID().toString())))
+    master.properties.replace(new ConnectedMasterCascProperty(masterName))
     master.save()
     master.onModified()
 
