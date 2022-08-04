@@ -1,5 +1,7 @@
 # CloudBees CI: Create Managed Masters Programmatically
 
+## This repo is deprecated. Use the supported CasC approach in the latest release of CloudBees CI
+
 ## `create-update-managed-master-no-casc.groovy`
 
 This script shows how to programmatically create/update a managed master. You can specify the provisioning details.
